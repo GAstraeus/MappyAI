@@ -12,6 +12,7 @@ import numpy as np
 import stable_retro as retro
 from gymnasium.wrappers import TimeLimit
 from stable_baselines3.common.atari_wrappers import ClipRewardEnv, WarpFrame
+from stable_baselines3.common.monitor import Monitor
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 INTEGRATIONS_DIR = os.path.join(PROJECT_DIR, "integrations")
@@ -117,6 +118,7 @@ def wrap_env(env, train=True, max_episode_steps=4500):
         env = TimeLimit(env, max_episode_steps=max_episode_steps)
     env = WarpFrame(env)  # grayscale 84x84
     if train:
+        env = Monitor(env)  # episode stats (must sit above reward clipping)
         env = ClipRewardEnv(env)
     return env
 
