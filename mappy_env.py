@@ -91,12 +91,19 @@ class StochasticFrameSkip(gym.Wrapper):
         return ob, totrew, terminated, truncated, info
 
 
-def make_raw_env(state=DEFAULT_STATE, render_mode=None, record=False):
-    """Unwrapped retro env: full NES screen, MultiBinary buttons."""
+def make_raw_env(state=DEFAULT_STATE, render_mode=None, record=False,
+                 actions=retro.Actions.FILTERED):
+    """Unwrapped retro env: full NES screen, MultiBinary buttons.
+
+    NOTE: Actions.FILTERED silently drops START on this NES core. Anything
+    that must press START (play.py, make_state.py) needs actions=Actions.ALL.
+    Training never presses START (episodes begin from Level1.state).
+    """
     return retro.make(
         GAME,
         state=state,
         inttype=retro.data.Integrations.ALL,
+        use_restricted_actions=actions,
         render_mode=render_mode,
         record=record,
     )
