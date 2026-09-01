@@ -1,0 +1,5 @@
+stable-retro
+stable-baselines3[extra]
+gymnasium
+opencv-python
+pygame
