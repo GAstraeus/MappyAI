@@ -37,12 +37,20 @@ search-driven play and matching against the rendered score display:
 | `score` | 0x72–0x74 (114) | `>d3` | big-endian packed BCD, equals displayed score (verified at 0, 40, 60, 80, 200, 3210+) |
 | `lives` | 0x70 (112) | `\|u1` | **reserve** lives: 2 while playing the first life, 0 on the last, resets to 3 in attract mode |
 | `gameover` | 0x491 (1169) | `\|u1` | 0 during play; 12 while the GAME OVER banner shows (~4 s) |
+| `round` | 0x77 (119) | `\|u1` | round number (info only; encoding past round 9 unverified) |
+
+Also mapped but not exposed: the 10 round items live in 8-byte structs at
+0x260 + 8k (k = 0..9), layout `02 <id> 00 00 <x> <y> 00 00`; byte 0 is 02 while
+the item is on the map, 04 during the pickup popup, 00 once collected. Useful
+if reward shaping or RAM features are wanted later.
 
 - **Reward** = score delta (`scenario.json`); `ClipRewardEnv` sign-clips it during training.
 - **Done** = `gameover != 0 AND lives == 3`. Lives alone can't express game over
   (it never goes negative; it jumps 0→3 when attract mode starts, and 3 lives can
   legitimately occur in-game after the 20000-point extra life). The banner byte
-  0x491 stayed 0 through all observed play, deaths, and item pickups.
+  0x491 was monitored frame-by-frame through deaths, item pickups, cat catches,
+  and a full round-1 → round-2 transition (driven by a beam search over emulator
+  save states): it is nonzero **only** during the game-over banner.
 - Episodes start from `Level1.state` and truncate after 4500 wrapped steps
   (~5 min of game time) via `TimeLimit`.
 

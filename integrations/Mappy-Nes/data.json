@@ -11,6 +11,10 @@
     "gameover": {
       "address": 1169,
       "type": "|u1"
+    },
+    "round": {
+      "address": 119,
+      "type": "|u1"
     }
   }
 }
