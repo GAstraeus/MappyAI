@@ -2,7 +2,15 @@
   "info": {
     "lives": {
       "address": 112,
-      "type": "|i1"
+      "type": "|u1"
+    },
+    "score": {
+      "address": 114,
+      "type": ">d3"
+    },
+    "gameover": {
+      "address": 1169,
+      "type": "|u1"
     }
   }
 }
