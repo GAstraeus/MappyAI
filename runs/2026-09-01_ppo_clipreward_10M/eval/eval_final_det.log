@@ -1,0 +1,7 @@
+ppo_mappy_final.zip ep1: score   5940  steps 4500 (300s)  round 1  deaths 1  TIMEOUT  first point @ step 10  actions: NOOP=15%, LEFT=15%, RIGHT=24%, A=8%, LEFT+A=8%, RIGHT+A=30%
+wrote runs/2026-09-01_ppo_clipreward_10M/eval/media/ppo_mappy_final_det.mp4 (4499 frames, 300s)
+wrote runs/2026-09-01_ppo_clipreward_10M/eval/media/ppo_mappy_final_det_frames.png (steps [0, 642, 1285, 1927, 2570, 3212, 3855, 4498])
+ppo_mappy_final.zip ep2: score   5910  steps 4500 (300s)  round 1  deaths 2  TIMEOUT  first point @ step 10  actions: NOOP=16%, LEFT=15%, RIGHT=23%, A=8%, LEFT+A=8%, RIGHT+A=31%
+ppo_mappy_final.zip ep3: score   5950  steps 4500 (300s)  round 1  deaths 2  TIMEOUT  first point @ step 10  actions: NOOP=13%, LEFT=12%, RIGHT=36%, A=11%, LEFT+A=9%, RIGHT+A=19%
+== ppo_mappy_final.zip: score mean 5933 ± 17 (min 5910, max 5950), steps mean 4500, max round 1, timeouts 3/3
+wrote runs/2026-09-01_ppo_clipreward_10M/eval/results_final_det.json

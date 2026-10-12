@@ -1,0 +1,6 @@
+# Per-run archives: keep the small record (notes, curves, tables, frame strips)
+# in git; the heavy artifacts stay local.
+*.mp4
+*.zip
+*.log.gz
+tb_events/

@@ -20,12 +20,33 @@ python3.12 -m venv .venv          # any Python 3.10–3.14
 python scripts/train.py                     # 10M steps, 8 workers, checkpoints/ + tb_logs/
 python scripts/watch.py checkpoints/ppo_mappy_final.zip            # live window
 python scripts/watch.py checkpoints/ppo_mappy_final.zip --record   # .bk2 + .mp4 (needs ffmpeg)
+python scripts/evaluate.py checkpoints/ppo_mappy_final.zip --video eval/final.mp4  # headless eval + mp4 (no display/ffmpeg needed)
+python scripts/plot_curve.py                # learning-curve PNG from tb_logs/ -> eval/learning_curve.png
 python scripts/play.py --state Level1       # play with keyboard, logs RAM to ram_logs/
 python scripts/find_score.py ram_logs/play_<ts>.npz   # hunt RAM variables in a log
 ```
 
 Training on pixels needs millions of frames — expect hours. Watch progress in
 tensorboard (`tensorboard --logdir tb_logs`, `rollout/ep_rew_mean`).
+
+## Results: 10M-step run (2026-09-01)
+
+- `scripts/train.py` defaults (8 workers, CPU, ~870 fps) took ~3h10m. Final model:
+  `checkpoints/ppo_mappy_final.zip` (checkpoints every 100k steps; gitignored).
+- Mean episode score rose 57 -> ~5,050 and was still climbing at 10M steps; mean
+  episode length rose 370 -> ~3,960 steps against the 4,500-step cap
+  (`scripts/plot_curve.py`). Score tracks length almost exactly (~1.3 pts/step).
+- **The agent farms trampoline bounces.** In evaluation every scoring event is
+  +10 (518 of them in one episode), awarded for bouncing on a trampoline. It never
+  collects an item and never leaves round 1 at any checkpoint from 1M steps on.
+  Deterministic play: 5,890 +/- 30 points, every episode runs to the time cap;
+  sampled play: 5,020 +/- 1,040 (`scripts/evaluate.py`).
+- Why: `ClipRewardEnv` makes a +10 bounce worth the same +1 as a +500 item, and
+  the time cap carries no penalty, so bouncing safely until truncation is the
+  optimum under the training reward.
+- Next lever: scale rewards instead of sign-clipping (e.g. `reward / 100`) or
+  mask the +10 bounce award, optionally add a small per-step cost, then retrain.
+  This box has 96 cores, so `--num-envs 32` or more should cut wall time a lot.
 
 ## Integration: what was reverse-engineered and how
 
