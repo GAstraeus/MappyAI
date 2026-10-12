@@ -6,7 +6,7 @@ change, not more training.
 
 ## Setup
 
-- Code: commit `ca15be8` (`scripts/train.py` defaults; hyperparameters unchanged since).
+- Code: commit `709ee0d` (was `ca15be8` before the 2026-10-12 author-email history rewrite) (`scripts/train.py` defaults; hyperparameters unchanged since).
 - Env (`mappy_env.py`): Discretizer (6 actions), StochasticFrameSkip(4, p=0.25),
   TimeLimit(4500 steps), WarpFrame 84x84 gray, Monitor, **ClipRewardEnv (sign clip)**;
   VecFrameStack(4). Reward = score delta (`scenario.json`); done = game-over banner with
