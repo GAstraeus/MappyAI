@@ -6,3 +6,4 @@ recordings/
 ram_logs/
 tb_logs/
 train.log
+/eval/

@@ -1,0 +1,384 @@
+{
+ "ppo_mappy_1000000_steps": {
+  "checkpoint": "checkpoints/ppo_mappy_1000000_steps.zip",
+  "deterministic": false,
+  "seed": 0,
+  "episodes": [
+   {
+    "score": 1300,
+    "steps": 1240,
+    "seconds": 82.66666666666667,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 165,
+     "LEFT": 160,
+     "RIGHT": 377,
+     "A": 83,
+     "LEFT+A": 264,
+     "RIGHT+A": 191
+    }
+   },
+   {
+    "score": 760,
+    "steps": 829,
+    "seconds": 55.266666666666666,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 110,
+     "LEFT": 100,
+     "RIGHT": 241,
+     "A": 56,
+     "LEFT+A": 196,
+     "RIGHT+A": 126
+    }
+   },
+   {
+    "score": 1940,
+    "steps": 1744,
+    "seconds": 116.26666666666667,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 11,
+    "actions": {
+     "NOOP": 291,
+     "LEFT": 206,
+     "RIGHT": 468,
+     "A": 96,
+     "LEFT+A": 406,
+     "RIGHT+A": 277
+    }
+   }
+  ]
+ },
+ "ppo_mappy_2500000_steps": {
+  "checkpoint": "checkpoints/ppo_mappy_2500000_steps.zip",
+  "deterministic": false,
+  "seed": 0,
+  "episodes": [
+   {
+    "score": 1730,
+    "steps": 1453,
+    "seconds": 96.86666666666666,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 125,
+     "LEFT": 72,
+     "RIGHT": 468,
+     "A": 270,
+     "LEFT+A": 267,
+     "RIGHT+A": 251
+    }
+   },
+   {
+    "score": 3880,
+    "steps": 3136,
+    "seconds": 209.06666666666666,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 181,
+     "LEFT": 285,
+     "RIGHT": 723,
+     "A": 599,
+     "LEFT+A": 518,
+     "RIGHT+A": 830
+    }
+   },
+   {
+    "score": 1940,
+    "steps": 1693,
+    "seconds": 112.86666666666666,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 131,
+     "LEFT": 143,
+     "RIGHT": 450,
+     "A": 278,
+     "LEFT+A": 354,
+     "RIGHT+A": 337
+    }
+   }
+  ]
+ },
+ "ppo_mappy_5000000_steps": {
+  "checkpoint": "checkpoints/ppo_mappy_5000000_steps.zip",
+  "deterministic": false,
+  "seed": 0,
+  "episodes": [
+   {
+    "score": 2720,
+    "steps": 2265,
+    "seconds": 151.0,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 318,
+     "LEFT": 311,
+     "RIGHT": 533,
+     "A": 360,
+     "LEFT+A": 342,
+     "RIGHT+A": 401
+    }
+   },
+   {
+    "score": 2880,
+    "steps": 2434,
+    "seconds": 162.26666666666665,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 297,
+     "LEFT": 261,
+     "RIGHT": 438,
+     "A": 447,
+     "LEFT+A": 523,
+     "RIGHT+A": 468
+    }
+   },
+   {
+    "score": 4320,
+    "steps": 3507,
+    "seconds": 233.79999999999998,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 470,
+     "LEFT": 381,
+     "RIGHT": 657,
+     "A": 686,
+     "LEFT+A": 661,
+     "RIGHT+A": 652
+    }
+   }
+  ]
+ },
+ "ppo_mappy_7500000_steps": {
+  "checkpoint": "checkpoints/ppo_mappy_7500000_steps.zip",
+  "deterministic": false,
+  "seed": 0,
+  "episodes": [
+   {
+    "score": 3110,
+    "steps": 2538,
+    "seconds": 169.2,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 186,
+     "LEFT": 239,
+     "RIGHT": 427,
+     "A": 416,
+     "LEFT+A": 481,
+     "RIGHT+A": 789
+    }
+   },
+   {
+    "score": 4280,
+    "steps": 3437,
+    "seconds": 229.13333333333333,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 245,
+     "LEFT": 379,
+     "RIGHT": 774,
+     "A": 574,
+     "LEFT+A": 630,
+     "RIGHT+A": 835
+    }
+   },
+   {
+    "score": 2470,
+    "steps": 2104,
+    "seconds": 140.26666666666665,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 11,
+    "actions": {
+     "NOOP": 212,
+     "LEFT": 258,
+     "RIGHT": 421,
+     "A": 415,
+     "LEFT+A": 378,
+     "RIGHT+A": 420
+    }
+   }
+  ]
+ },
+ "ppo_mappy_final": {
+  "checkpoint": "checkpoints/ppo_mappy_final.zip",
+  "deterministic": false,
+  "seed": 0,
+  "episodes": [
+   {
+    "score": 5140,
+    "steps": 4140,
+    "seconds": 276.0,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 589,
+     "LEFT": 474,
+     "RIGHT": 1260,
+     "A": 511,
+     "LEFT+A": 418,
+     "RIGHT+A": 888
+    }
+   },
+   {
+    "score": 5870,
+    "steps": 4500,
+    "seconds": 300.0,
+    "max_round": 1,
+    "deaths": 2,
+    "truncated": true,
+    "first_point_step": 11,
+    "actions": {
+     "NOOP": 505,
+     "LEFT": 612,
+     "RIGHT": 1131,
+     "A": 634,
+     "LEFT+A": 553,
+     "RIGHT+A": 1065
+    }
+   },
+   {
+    "score": 3540,
+    "steps": 2888,
+    "seconds": 192.53333333333333,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 459,
+     "LEFT": 449,
+     "RIGHT": 694,
+     "A": 270,
+     "LEFT+A": 316,
+     "RIGHT+A": 700
+    }
+   },
+   {
+    "score": 5030,
+    "steps": 4007,
+    "seconds": 267.1333333333333,
+    "max_round": 1,
+    "deaths": 3,
+    "truncated": false,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 522,
+     "LEFT": 579,
+     "RIGHT": 1000,
+     "A": 517,
+     "LEFT+A": 509,
+     "RIGHT+A": 880
+    }
+   },
+   {
+    "score": 5860,
+    "steps": 4500,
+    "seconds": 300.0,
+    "max_round": 1,
+    "deaths": 2,
+    "truncated": true,
+    "first_point_step": 11,
+    "actions": {
+     "NOOP": 556,
+     "LEFT": 698,
+     "RIGHT": 1178,
+     "A": 409,
+     "LEFT+A": 493,
+     "RIGHT+A": 1166
+    }
+   }
+  ]
+ },
+ "ppo_mappy_final_det": {
+  "checkpoint": "checkpoints/ppo_mappy_final.zip",
+  "deterministic": true,
+  "seed": 1,
+  "episodes": [
+   {
+    "score": 5940,
+    "steps": 4500,
+    "seconds": 300.0,
+    "max_round": 1,
+    "deaths": 1,
+    "truncated": true,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 654,
+     "LEFT": 684,
+     "RIGHT": 1075,
+     "A": 371,
+     "LEFT+A": 346,
+     "RIGHT+A": 1370
+    }
+   },
+   {
+    "score": 5910,
+    "steps": 4500,
+    "seconds": 300.0,
+    "max_round": 1,
+    "deaths": 2,
+    "truncated": true,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 703,
+     "LEFT": 690,
+     "RIGHT": 1024,
+     "A": 360,
+     "LEFT+A": 340,
+     "RIGHT+A": 1383
+    }
+   },
+   {
+    "score": 5950,
+    "steps": 4500,
+    "seconds": 300.0,
+    "max_round": 1,
+    "deaths": 2,
+    "truncated": true,
+    "first_point_step": 10,
+    "actions": {
+     "NOOP": 587,
+     "LEFT": 527,
+     "RIGHT": 1616,
+     "A": 512,
+     "LEFT+A": 405,
+     "RIGHT+A": 853
+    }
+   }
+  ]
+ }
+}

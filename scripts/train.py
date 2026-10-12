@@ -7,7 +7,7 @@ Usage:
 
 Monitor with: tensorboard --logdir tb_logs
 Expect hours for multi-million-step runs on a laptop; checkpoints land in
-checkpoints/ every 100k steps (per env, so 8 envs -> every 800k total steps).
+checkpoints/ every 100k total steps (save_freq is divided by num_envs).
 """
 
 import argparse

@@ -1,0 +1,7 @@
+ppo_mappy_7500000_steps.zip ep1: score   3110  steps 2538 (169s)  round 1  deaths 3  GAMEOVER  first point @ step 10  actions: NOOP=7%, LEFT=9%, RIGHT=17%, A=16%, LEFT+A=19%, RIGHT+A=31%
+wrote runs/2026-09-01_ppo_clipreward_10M/eval/media/ppo_mappy_7500000_steps.mp4 (2537 frames, 169s)
+wrote runs/2026-09-01_ppo_clipreward_10M/eval/media/ppo_mappy_7500000_steps_frames.png (steps [0, 362, 724, 1086, 1449, 1811, 2173, 2536])
+ppo_mappy_7500000_steps.zip ep2: score   4280  steps 3437 (229s)  round 1  deaths 3  GAMEOVER  first point @ step 10  actions: NOOP=7%, LEFT=11%, RIGHT=23%, A=17%, LEFT+A=18%, RIGHT+A=24%
+ppo_mappy_7500000_steps.zip ep3: score   2470  steps 2104 (140s)  round 1  deaths 3  GAMEOVER  first point @ step 11  actions: NOOP=10%, LEFT=12%, RIGHT=20%, A=20%, LEFT+A=18%, RIGHT+A=20%
+== ppo_mappy_7500000_steps.zip: score mean 3287 ± 749 (min 2470, max 4280), steps mean 2693, max round 1, timeouts 0/3
+wrote runs/2026-09-01_ppo_clipreward_10M/eval/results_7500000.json
