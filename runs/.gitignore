@@ -4,3 +4,5 @@
 *.zip
 *.log.gz
 tb_events/
+events.out.tfevents*
+log.txt

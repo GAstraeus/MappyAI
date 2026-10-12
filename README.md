@@ -17,22 +17,57 @@ python3.12 -m venv .venv          # any Python 3.10–3.14
 ## Usage
 
 ```sh
-python scripts/train.py                     # 10M steps, 8 workers, checkpoints/ + tb_logs/
-python scripts/watch.py checkpoints/ppo_mappy_final.zip            # live window
-python scripts/watch.py checkpoints/ppo_mappy_final.zip --record   # .bk2 + .mp4 (needs ffmpeg)
-python scripts/evaluate.py checkpoints/ppo_mappy_final.zip --video eval/final.mp4  # headless eval + mp4 (no display/ffmpeg needed)
-python scripts/plot_curve.py                # learning-curve PNG from tb_logs/ -> eval/learning_curve.png
-python scripts/play.py --state Level1       # play with keyboard, logs RAM to ram_logs/
-python scripts/find_score.py ram_logs/play_<ts>.npz   # hunt RAM variables in a log
+python scripts/train.py --run-name <name>                 # 10M steps, 8 workers -> runs/<name>/
+python scripts/train.py --run-name <name> --num-envs 32 --timesteps 2e7
+python scripts/train.py --run-name <name> --resume runs/<name>/final_model.zip   # continue a run
+python scripts/archive_run.py runs/<name>                 # curve + videos + tables + RUN.md
+python scripts/watch.py runs/<name>/best/best_model.zip            # live window (Mac)
+python scripts/watch.py runs/<name>/best/best_model.zip --record   # .bk2 + .mp4 (needs ffmpeg)
+python scripts/evaluate.py runs/<name>/best/best_model.zip --video out.mp4   # headless eval + mp4
+python scripts/plot_curve.py runs/<name>                  # just the learning-curve PNG
+python scripts/play.py --state Level1                     # play with keyboard, logs RAM to ram_logs/
+python scripts/find_score.py ram_logs/play_<ts>.npz       # hunt RAM variables in a log
 ```
 
-Training on pixels needs millions of frames — expect hours. Watch progress in
-tensorboard (`tensorboard --logdir tb_logs`, `rollout/ep_rew_mean`).
+Training on pixels needs millions of frames — expect hours. Watch progress live
+with `tensorboard --logdir runs`.
+
+## Runs: what gets saved and how to look at it
+
+Every `train.py` invocation writes into its own folder, so runs never overwrite
+each other:
+
+```
+runs/<name>/
+  config.json            args, PPO hyperparameters, env description, git commit
+  logs/                  log.txt (console tables), progress.csv (every scalar per update), tensorboard events
+  logs_from_<steps>/     the same for each --resume segment
+  checkpoints/           ppo_mappy_<steps>_steps.zip every --checkpoint-every steps (default 500k)
+  best/best_model.zip    best mean raw score on the periodic evaluation
+                         (--eval-every, default 250k steps; --eval-episodes, default 5, sampled policy)
+  eval/evaluations.npz   those periodic evaluation scores and lengths
+  final_model.zip        the model when training ends
+```
+
+`archive_run.py` then adds `learning_curve.png` (training curve with the periodic
+evaluations overlaid), `eval/summary.md` and `eval/results.json` (evenly spaced
+checkpoints plus best and final, each replayed for a few episodes), one mp4 and
+8-frame strip per evaluated model in `eval/media/`, and a `RUN.md` with the setup
+and a Findings section for your notes. Re-running it refreshes the curve and
+tables but never overwrites an existing RUN.md.
+
+Small files (notes, curve, progress.csv, tables, frame strips) are committed;
+`runs/.gitignore` keeps models, videos, tensorboard events and log.txt local, so
+copy those by hand if you need them on another machine.
+
+`runs/2026-09-01_ppo_clipreward_10M/` is the first run, assembled by hand from
+the older flat layout (`checkpoints/`, `tb_logs/`, `train.log`).
 
 ## Results: 10M-step run (2026-09-01)
 
-- `scripts/train.py` defaults (8 workers, CPU, ~870 fps) took ~3h10m. Final model:
-  `checkpoints/ppo_mappy_final.zip` (checkpoints every 100k steps; gitignored).
+- `scripts/train.py` defaults (8 workers, CPU, ~870 fps) took ~3h10m. Archived in
+  `runs/2026-09-01_ppo_clipreward_10M/` (see its RUN.md); the full set of 100k-step
+  checkpoints is still in `checkpoints/` (gitignored).
 - Mean episode score rose 57 -> ~5,050 and was still climbing at 10M steps; mean
   episode length rose 370 -> ~3,960 steps against the 4,500-step cap
   (`scripts/plot_curve.py`). Score tracks length almost exactly (~1.3 pts/step).
