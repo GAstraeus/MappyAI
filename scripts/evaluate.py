@@ -134,6 +134,7 @@ def main():
         )
         all_results[stem] = {
             "checkpoint": ckpt,
+            "num_timesteps": int(model.num_timesteps),
             "deterministic": args.deterministic,
             "seed": args.seed,
             "episodes": results,
